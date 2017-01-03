@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html style="height:100%">
+<head>
+    <title>小白兼职-让兼职有价值，专注大学生成长的兼职平台</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+    <canvas id="canvas" style="display:block;margin:0 auto">
+        当前浏览器不支持canvas
+    </canvas>
+</body>
+<script type="text/javascript">
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+	canvas.width = 1024;
+	canvas.height = 768;
+	// context.lineWidth = 1;
+	// context.fillStyle = '#000';
+	// var skyStyle = context.createLinearGradient(0,0,0,canvas.height);//线性渐变
+	
+	var skyStyle = context.createRadialGradient(canvas.width/2,canvas.height,10,canvas.width/2,canvas.height,canvas.height);//迳向渐变
+	skyStyle.addColorStop(0.0,'#035');
+	skyStyle.addColorStop(1.0,'black');
+	context.fillStyle = skyStyle;
+	context.fillRect(0,0,canvas.width,canvas.height);
+	for(var i=0;i<200;i++){
+		var r = Math.random()*5+5;
+		var x = Math.random()*canvas.width;
+		var y = Math.random()*canvas.height*0.65;
+		var a = Math.random()*360;
+		drawStarAction(context,x,y,a,r);
+
+	}
+	function drawStarAction(context,x,y,a,r){
+		context.save();
+		context.translate(x,y);
+		context.rotate(a/180*Math.PI);
+		context.scale(r,r);
+		drawStar(context);
+		context.fillStyle="#fb3";
+		// context.strokeStyle = "#fd5";
+		// context.lineWidth=3;
+		// context.lineJoin = "round";
+		context.fill();
+		// context.stroke();
+		context.restore();
+
+	}
+
+	function drawStar(cxt){
+		cxt.beginPath();
+		for(var i =0 ; i<5 ;i++){
+			cxt.lineTo(Math.cos(((18+i*72)/180)*Math.PI),-Math.sin(((18+i*72)/180)*Math.PI));
+			cxt.lineTo(Math.cos(((54+i*72)/180)*Math.PI)*0.5,-Math.sin(((54+i*72)/180)*Math.PI)*0.5)
+		}
+		cxt.closePath();
+
+	}
+</script>
+</html>
+

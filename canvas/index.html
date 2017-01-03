@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>中秋节</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<script type="text/javascript" src="http://cdn.ufenqi.com/cms/img/lufylegend-1.5.1.min.js"></script>
+	<!--<script src="http://cdn.ufenqi.com/cms/img/jquery-1.9.1.min.js"></script>-->
+	<script type="text/javascript" src="./js/Main.js"></script>
+	<script type="text/javascript" src="./js/Box.js"></script>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.moonbox{
+			position: absolute;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+		}
+		.moonback{
+			width:100%;
+			height:100%;
+		}
+		.moonheader{
+			position: absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:50%;
+		}
+		.moonheader img{
+			width:100%;
+		}
+	</style>
+</head>
+<body>
+<div id="mylegend">
+	loading……
+
+</div>
+<script>
+function doScroll() {
+	if(window.pageYOffset === 0) {
+		window.scrollTo(0, 1);
+	}
+}
+window.onload = function() {
+	setTimeout(doScroll, 100);
+	//初始化
+	var _w = window.screen.width;
+	var _h = window.screen.height;
+	init(30,"mylegend",_w,_h,main,LEvent.INIT);
+}
+window.onorientationchange = function() {
+	setTimeout(doScroll, 100);
+};
+window.onresize = function() {
+	setTimeout(doScroll, 100);
+}
+</script>
+</body>
+</html>
